@@ -1,10 +1,12 @@
 package tn.esprit.ben_nagra_yosr.entites;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Set;
 
@@ -14,14 +16,20 @@ import java.util.Set;
 @Entity
 public class Reservation implements Serializable {
     @Id
-    private String idReservation;
+    private long idReservation;
     private Date anneeUniversitaire;
-    private Boolean estValide;
+    private String numReservation ;
+    @Temporal(TemporalType.DATE)
+    private LocalDate debutanneeUniversitaire;
+    @Temporal(TemporalType.DATE)
+    private LocalDate finanneeUniversitaire;
+    private Boolean estValide ;
 
+    @JsonIgnore
     @ManyToOne
     private Chambre chamber;
-
+    @JsonIgnore
     @ManyToMany
-    private Set <Etudiant> etudiants;
+    private Set<Etudiant> etudiants;
 
 }

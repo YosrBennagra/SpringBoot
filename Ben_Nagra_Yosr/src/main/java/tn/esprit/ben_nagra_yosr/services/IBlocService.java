@@ -5,11 +5,12 @@ import tn.esprit.ben_nagra_yosr.entites.Bloc;
 import java.util.List;
 
 public interface IBlocService {
-    Bloc AjouterBloc(Bloc b);
-    Bloc UpdateBloc(Bloc b);
+    Bloc ajouterBloc(Bloc b);
+    Bloc updateBloc(Bloc b);
+    void supprimerBloc(long idBloc);
+    Bloc getBloc(long idBloc);
+    List<Bloc> getAllBlocs();
 
-    void SupprimerBloc (long idBloc) ;
-
-    Bloc GetBloc(long idBloc);
-    List <Bloc> GetAllBlocs();
+    public Bloc affecterChambresABloc(List<Long> numChambre, String nomBloc);
+    public Bloc affecterBlocAFoyer( String nomBloc, String nomFoyer);
 }

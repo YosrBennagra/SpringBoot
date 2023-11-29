@@ -1,5 +1,6 @@
 package tn.esprit.ben_nagra_yosr.entites;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,14 +14,16 @@ import java.util.Set;
 @Entity
 public class Chambre implements Serializable {
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idChambre;
-    private Long numeroChambre;
-    private TypeChambre typeC;
+    private Long numeroChambre ;
+    @Enumerated(EnumType.STRING)
+    private TypeChambre typeC ;
+    @JsonIgnore
     @ManyToOne
-    private Bloc bloc_chambre;
-
-    @OneToMany(mappedBy = "chamber")
-    private Set <Reservation> reservations;
+    private Bloc blocchambre;
+    @JsonIgnore
+    @OneToMany
+    private Set<Reservation> reservations;
 
 }

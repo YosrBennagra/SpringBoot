@@ -12,11 +12,12 @@ import java.io.Serializable;
 @Entity
 public class Universite implements Serializable {
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private Long idFoyer;
-    private String nomFoyer;
-    private String capaciteFoyer;
-    @OneToOne
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idUniversite;
+    @Column(unique = true) //tkhali nom unique
+    private String nomUniversite;
+    private String adresse;
     @JsonIgnore
-    private Foyer foyer;
+    @OneToOne
+    private Foyer foyer ;
 }

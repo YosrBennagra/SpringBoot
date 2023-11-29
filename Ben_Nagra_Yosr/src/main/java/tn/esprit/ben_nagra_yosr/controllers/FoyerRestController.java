@@ -10,41 +10,43 @@ import tn.esprit.ben_nagra_yosr.services.IFoyerService;
 import java.util.List;
 
 @RequiredArgsConstructor
-@RequestMapping ("foyer")
+@RequestMapping("foyer")
 @RestController
-@Tag(name = "Foyer")
 public class FoyerRestController {
     private final IFoyerService foyerServices;
 
-    @GetMapping ("/all")
-    @Operation (summary = "Get all foyers")
-    public List < Foyer > getAllFoyer(){
-        return foyerServices.GetAllfoyer();
+    @GetMapping("/all")
+    public List<Foyer> getAllFoyer(){
+        return foyerServices.getAllFoyer();
     }
-    @PostMapping ("/add")
-    @Operation(summary = "Add a new foyer")
+
+    @PostMapping("/add")
     public Foyer addFoyer(@RequestBody Foyer f){
-        return foyerServices.Ajouterfoyer(f);
+        return foyerServices.ajouterFoyer(f);
     }
 
-// Existing code
+    @PostMapping("/update")
+    public Foyer updateFoyer(@RequestBody Foyer f){
+        return foyerServices.updateFoyer(f);
+    }
 
-@DeleteMapping("/delete/{id}")
-@Operation(summary = "Delete a foyer by id")
-public void deleteFoyer(@PathVariable("id") Long id){
+    @DeleteMapping ("/delete/{idFoyer}")
+    public void deleteFoyer(@PathVariable Long idFoyer){
+        foyerServices.supprimerFoyer(idFoyer);
+    }
 
-  foyerServices.SupprimeFoyer(id);
-
-}
     @PutMapping("update")
-    @Operation(summary = "Update a foyer")
     public Foyer ModifierFoyer( @RequestBody Foyer f) {
-        return foyerServices.Updatefoyer(f);
+        return foyerServices.updateFoyer(f);
     }
 
     @GetMapping("getfoyer/{id}")
-    @Operation(summary = "Get a foyer by id")
     public Foyer getfoyerByid(@PathVariable long id){
-        return foyerServices.Getfoyer(id);
+        return foyerServices.getFoyer(id);
+    }
+
+    @PostMapping ("/ajouterFoyerEtAffecterAUniversite/{idUniv}")
+    public void ajouterFoyerEtAffecterAUniversiteApi(@RequestBody Foyer f,@PathVariable Long idUniv){
+        foyerServices.ajouterFoyerEtAffecterAUniversite(f,idUniv);
     }
 }

@@ -5,10 +5,10 @@ import tn.esprit.ben_nagra_yosr.entites.Etudiant;
 import java.util.List;
 
 public interface IEtudiantService {
-    Etudiant AjouterEtudiant(Etudiant e);
-    Etudiant UpdateEtudiant (Etudiant e);
-    void SupprimerEtdiant (long idEtudiant);
-    Etudiant GetEtudiant(long idEtudiant);
-    List <Etudiant> GetAllEtudiant();
+    Etudiant ajouterEtudiant(Etudiant et);
+    Etudiant updateEtudiant(Etudiant et);
+    void supprimerEtudiant(long idEtudiant);
+    Etudiant getEtudiant(long idEtudiant);
+    List<Etudiant> getAllEtudiants();
 
 }

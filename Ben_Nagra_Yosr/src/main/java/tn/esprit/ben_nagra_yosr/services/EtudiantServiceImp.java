@@ -10,30 +10,30 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class EtudiantServiceImp implements IEtudiantService{
-    IEtudiantRepo etudiantRepository;
+    IEtudiantRepo etudiantRepo;
+
     @Override
-    public Etudiant AjouterEtudiant(Etudiant e) {
-        return etudiantRepository.save(e);
+    public Etudiant ajouterEtudiant(Etudiant et) {
+        return etudiantRepo.save(et);
     }
 
     @Override
-    public Etudiant UpdateEtudiant(Etudiant e) {
-        return etudiantRepository.save(e);
+    public Etudiant updateEtudiant(Etudiant et) {
+        return etudiantRepo.save(et);
     }
 
     @Override
-    public void SupprimerEtdiant(long idEtudiant) {
-        etudiantRepository.deleteById( idEtudiant);
-
+    public void supprimerEtudiant(long idEtudiant) {
+        etudiantRepo.deleteById(idEtudiant);
     }
 
     @Override
-    public Etudiant GetEtudiant(long idEtudiant) {
-        return etudiantRepository.findById(idEtudiant).orElse(null);
+    public Etudiant getEtudiant(long idEtudiant) {
+        return etudiantRepo.findById(idEtudiant).orElse(null);
     }
 
     @Override
-    public List <Etudiant> GetAllEtudiant() {
-        return etudiantRepository.findAll();
+    public List<Etudiant> getAllEtudiants() {
+        return (List<Etudiant>) etudiantRepo.findAll();
     }
 }

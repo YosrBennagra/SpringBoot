@@ -5,11 +5,12 @@ import tn.esprit.ben_nagra_yosr.entites.Foyer;
 import java.util.List;
 
 public interface IFoyerService {
-    Foyer Ajouterfoyer(Foyer f);
-    Foyer Updatefoyer(Foyer f);
-    void SupprimeFoyer(long idfoyer);
-    Foyer Getfoyer(long idfoyer);
+    Foyer ajouterFoyer(Foyer foyer);
+    Foyer updateFoyer(Foyer foyer);
+    void supprimerFoyer(Long idFoyer);
+    Foyer getFoyer(Long idFoyer);
+    List<Foyer> getAllFoyer();
 
-    List <Foyer> GetAllfoyer();
+    Foyer ajouterFoyerEtAffecterAUniversite (Foyer foyer, long idUniversite) ;
 
 }
