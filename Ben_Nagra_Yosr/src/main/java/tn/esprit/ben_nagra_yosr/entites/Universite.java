@@ -17,7 +17,7 @@ public class Universite implements Serializable {
     @Column(unique = true) //tkhali nom unique
     private String nomUniversite;
     private String adresse;
-    @JsonIgnore
+
     @OneToOne
     private Foyer foyer ;
 }

@@ -17,4 +17,6 @@ public interface IChambreService {
     List<Chambre> getChambresNonReserveParNomFoyerEtTypeChambre( String nomFoyer,TypeChambre type) ;
     List<Chambre> getChambresParBlocEtType(long idBloc, TypeChambre typeC);
 
+    List<Chambre>getChambresNonAffecter();
+
 }

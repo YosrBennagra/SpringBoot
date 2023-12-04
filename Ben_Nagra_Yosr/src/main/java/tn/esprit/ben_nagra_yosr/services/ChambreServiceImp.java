@@ -91,4 +91,9 @@ public class ChambreServiceImp implements IChambreService {
 
         return  chambreRepo.findByBlocchambreAndTypeC(b,typeC);
     }
+
+    @Override
+    public List<Chambre>getChambresNonAffecter(){
+        return chambreRepo.findChambreNonAffecter();
+    }
 }

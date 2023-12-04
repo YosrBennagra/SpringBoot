@@ -41,7 +41,7 @@ public class BlocServiceImp implements IBlocService {
 
     @Override
     public List<Bloc> getAllBlocs() {
-        return (List<Bloc>) blocRepo.findAll();
+        return (List<Bloc>) blocRepo.findAllWithFoyer();
     }
 
     @Transactional

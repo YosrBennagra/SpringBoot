@@ -11,7 +11,9 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping ("chambre")
 @RestController
+@CrossOrigin(origins = "*")
 public class ChambreRestController {
+
     private final IChambreService chambreService;
 
     @GetMapping ("/all")
@@ -56,5 +58,10 @@ public class ChambreRestController {
     public List<Chambre> getChambresParBlocEtType(@PathVariable long idBloc, @PathVariable TypeChambre typeC){
         return chambreService.getChambresParBlocEtType(idBloc,typeC);
 
+    }
+
+    @GetMapping("getChambresNonAffecter")
+    public List<Chambre> getChambresNonAffecter(){
+        return chambreService.getChambresNonAffecter();
     }
 }
