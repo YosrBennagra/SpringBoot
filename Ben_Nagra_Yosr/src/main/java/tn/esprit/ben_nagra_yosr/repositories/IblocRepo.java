@@ -13,4 +13,8 @@ public interface IblocRepo extends JpaRepository <Bloc,Long> {
 
     @Query ("SELECT b FROM Bloc b LEFT JOIN b.foyer")
     List<Bloc> findAllWithFoyer();
+
+    Bloc getBlocByBlocId(long idBloc);
+
+    Bloc getBlocByNomBloc(String nomBloc);
 }

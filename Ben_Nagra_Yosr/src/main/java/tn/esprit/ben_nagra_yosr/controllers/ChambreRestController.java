@@ -40,7 +40,6 @@ public class ChambreRestController {
     @GetMapping("getChambresParNomBloc/{nomBloc}")
     public List<Chambre> getChambresParNomBloc(@PathVariable String nomBloc){
         return chambreService.getChambresParNomBloc(nomBloc);
-
     }
 
     @GetMapping("nbChambreParTypeEtBloc/{type}/{idbloc}")

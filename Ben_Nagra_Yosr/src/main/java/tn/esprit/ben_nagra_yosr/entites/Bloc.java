@@ -10,9 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-
 @Entity
-
 public class Bloc implements Serializable{
 
     @Id
@@ -24,7 +22,8 @@ public class Bloc implements Serializable{
     @ManyToOne(cascade = {CascadeType.PERSIST})
     @JsonIgnoreProperties ("blocs")
     private Foyer foyer;
-    @JsonIgnore
+
+    @JsonIgnoreProperties ("blocchambre")
     @OneToMany(mappedBy = "blocchambre", fetch =FetchType.EAGER,
             cascade ={CascadeType.PERSIST,CascadeType.REMOVE})
     private Set<Chambre> chambres;

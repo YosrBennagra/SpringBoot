@@ -44,6 +44,12 @@ public class BlocServiceImp implements IBlocService {
         return (List<Bloc>) blocRepo.findAllWithFoyer();
     }
 
+    @Override
+    public Bloc getBlocById (long idBloc) {
+        return blocRepo.getBlocByBlocId(idBloc);
+    }
+
+
     @Transactional
     @Override
     public Bloc affecterChambresABloc(List<Long> numChambre, String nomBloc) {
@@ -62,4 +68,10 @@ public class BlocServiceImp implements IBlocService {
         b.setFoyer(f);
         return b;
     }
+
+    @Override
+    public Bloc getBlocByNom (String nomBloc) {
+        return blocRepo.getBlocByNomBloc(nomBloc);
+    }
+
 }

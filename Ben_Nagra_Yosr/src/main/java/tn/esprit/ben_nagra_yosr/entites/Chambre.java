@@ -1,6 +1,7 @@
 package tn.esprit.ben_nagra_yosr.entites;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,7 +20,8 @@ public class Chambre implements Serializable {
     private Long numeroChambre ;
     @Enumerated(EnumType.STRING)
     private TypeChambre typeC ;
-    @JsonIgnore
+
+    @JsonIgnoreProperties ("chambres")
     @ManyToOne
     private Bloc blocchambre;
     @JsonIgnore

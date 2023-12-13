@@ -75,13 +75,8 @@ public class ChambreServiceImp implements IChambreService {
         List<Chambre> chambre = new ArrayList<>();
         List<Bloc> blocs = blocRepository.findByFoyer(foyer);
         for (Bloc b : blocs) {
-
             chambre.addAll(chambreRepo.findByTypeCAndBlocchambreAndReservations(type,b,null));
         }
-
-
-
-
         return chambre;
     }
     @Override
